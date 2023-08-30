@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+ 
+
+{% block titel %} پرداخت ذخیره صندوق   {% endblock %}
+
+  
+{% block content %}   
+
+<h1> لیست پرداخت ها به صندوق اقای</h1>
+    <h2>  {{name}} </h2>
+
+    <table class="table table-success table-striped" >   
+      <tr>
+          <th>نام </th>
+          <th>نام خانوادگی </th>
+          <th> مبلغ پرداخت  </th>
+          <th> تاریخ سررسید </th>   
+          <th>  تاریخ پرداخت    </th>
+           <th> بدهی باقی مانده </th>
+  
+        </tr>
+        <tr>
+         {% for l in list %}
+    
+          <td> {{l.member.user.first_name}} </td>
+          <td> {{l.member.user.last_name}} </td>
+          <td> {{l.mablagh}} </td>
+          <td> {{ l.doreh.tarikh}}  </td>
+
+            {% if l.pardakht != None %}
+              <td>{{l.pardakht}}</td>
+            {% else %}
+              <td> <a href="/modir/createDarkhastSandogh/{{l.id}}"> کلیک کنید </a> </td>
+            {% endif%}  
+              
+          
+
+          
+          
+          
+          <td> {{last_name}}</td>
+          <td> </td>
+          <td> {{bedehi}} </td>
+  
+  
+    
+        </tr>
+    
+          {% endfor %}
+    
+    
+      </table>
+
+
+{% endblock %}
+
+
+  
+     
+
+    
+

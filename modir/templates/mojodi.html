@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block titel %} لیست در خواستها {% endblock%}
+{% block content %}   
+           {% for list in object_list %}
+             {{ list.mojodi }}
+           {% endfor %}
+      
+      
+     
+{% endblock %}

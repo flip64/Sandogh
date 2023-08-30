@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+  {% block titel %}  لیست وامها {% endblock %}
+  
+  
+{% block content %}
+     <table class="table table-success table-striped">   
+    <tr>
+        <th>نام </th>
+        <th>نام خانوادگی </th>
+        <th> مبلغ وام  </th>
+        <th>  وضعیت وام    </th>
+        <th> تاریخ وام  </th>
+        <th>  تعداد اقساط     </th>
+        <th>  تعداد اقساط باقی مانده   </th>
+        <th> بدهی باقی مانده </th>
+        <th> لیست اقساط </th>
+
+    </tr>
+    <tr>
+       {% for l in list %}
+  
+        <td> {{l.member.user.first_name}} </td>
+        <td> {{l.member.user.last_name}} </td>
+        <td> {{l.mablagh}} </td>
+         {% if l.state == True %}
+           <td> فعال </td>
+         {% else %}
+           <td> غیر فعال </td>
+         {% endif%}  
+
+        <td> {{ l.tarikh }}</td>
+        <td> {{l.type.tedadAghsat}}</td>
+        <td> To do</td>
+        <td> To do </td>
+        <td> <a href="/modir/listaghsat/{{l.id}}"> کلیک کنید </a> </td>
+
+
+  
+    </tr>
+  
+        {% endfor %}
+  
+  
+    </table>
+{% endblock %}    

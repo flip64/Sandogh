@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+  {% block titel %} لیست اعضا  {% endblock %}
+
+  
+  {% block content %}   
+
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+<table class="table table-success table-striped" >
+    <tr>
+      <th>نام </th>
+      <th>نام خانوادگی </th>
+      <th>نام کاربری</th>
+      <th>لیست وام ها  </th>
+      <th>لیست  پرداخت ها به صندوق  </th>
+      <th>  مبلغ ذخیره در صندوق</th>
+      <th>  بدهکاری بابت اقساط وام    </th>
+
+      <th>  بدهکاری به صندوق  </th>
+
+
+    </tr>
+    <tr>
+     {% for l in list  %}
+
+      <td> {{l.member.user.first_name}} </td>
+      <td> {{l.member.user.last_name}} </td>
+      <td> {{l.member.user.username}} </td>
+      <td> <a href= "/modir/loan/{{l.member.id}}" >کلیک کنید</a>  </td>
+      <td> <a href= "/modir/listpardakhtSandogh/{{l.member.id}}" >کلیک کنید</a>  </td>
+      <td> {{l.member.mablagh}}</td>
+      <td> {{l.bedehiLoan}}</td>
+      <td> {{ l.bedehiSandoh}}</td>
+
+    </tr>
+
+      {% endfor %}
+
+
+  </table>
+  
+     
+     
+  {% endblock %}
+
+

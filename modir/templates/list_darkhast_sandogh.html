@@ -1,0 +1,30 @@
+  {% extends "base.html" %}
+{% block titel %} لیست در خواستها پرداخت به صندوق{% endblock%}
+{% block content %}   
+ <table class="table table-striped table-hover">   
+        <tr>
+            <th> نام و نام خانوادگی   </th>
+            <th>    مبلغ .پرداختی   </th>
+
+
+            <th>   تاریخ سررسید   </th>
+            
+            <th>  تاریخ درخواست      </th>
+    
+          </tr>
+           {% for list in object_list %}
+            {% if list.acceptDate == None %}  
+            <tr>
+              <td> {{list.Zakhireh.member}} </td>
+              <td> {{list.Zakhireh.mablagh}} </td>
+              <td> {{list.Zakhireh.doreh.tarikh}} </a> </td>
+              <td> {{ list.startDate}}  </td>
+              <td> <a href="/modir/taidePardakhtSandogh/{{list.id}}"> تایید</td>
+            </tr>
+             {% endif %}   
+           {% endfor %}
+      
+      
+        </table>
+     
+{% endblock %}

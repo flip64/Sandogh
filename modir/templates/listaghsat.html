@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+  {% block titel %}  لیست اقساط   {% endblock %}
+
+  
+  {% block content %}   
+  <h1> اقساظ اقای</h1>
+  <h2>  {{name}} </h2>
+
+  <table class="table table-striped table-hover">   
+    <tr>
+        <th> شماره قسط  </th>
+        <th>   تاریخ سررسید    </th>
+        
+        <th>  تاریخ پرداخت      </th>
+        <th>     مبلغ   </th>
+         <th>     </th>
+         <th>   </th>
+
+      </tr>
+      <tr>
+       {% for l in list %}
+        <td> {{l.shomareh}} </td>
+        <td> {{l.tarikh}} </td>
+          {%  if l.pardakht   %}
+             <td>  {{l.pardakht}} </td>
+           {% else %}
+             <td> <a href="/modir/createDarkhast/{{l.id}}"> پرداخت کنید </a> </td>
+           {% endif %}
+        <td> {{ l.mablagh}}  </td>
+        <td> to do</td>
+        <td> To do </td>
+
+
+  
+      </tr>
+  
+        {% endfor %}
+  
+  
+    </table>
+             
+
+
+  {% endblock %}
+
+ 
+
+
+
+
+
+
+  
+     
+
